@@ -2,6 +2,7 @@ import { useState } from "react";
 import { View , Text, StyleSheet, TextInput, TouchableOpacity} from "react-native";
 import { useFonts, ArchitectsDaughter_400Regular } from '@expo-google-fonts/architects-daughter'
 import { useAuth } from "../../contexts/AuthContext";
+import { signInUser } from "../../services/AuthService";
 
 
 export function Login() {
@@ -21,8 +22,8 @@ export function Login() {
         console.log("Register")
     }
     
-    const login = ()=>{
-        authContext.signIn();
+    async function login(){
+        await authContext.signIn(email,password);
     }
 
     return(

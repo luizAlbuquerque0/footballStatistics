@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { authService } from "../services/AuthService";
 
 export const AuthContext = createContext({});
 
@@ -6,15 +7,19 @@ export const AuthContext = createContext({});
 
 export const AuthProvider = ({children})=>{
 
-    const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [authData, setAuth] = useState(false);
+    
 
-    function signIn(){
-        console.log("Logado")
+    async function signIn(email,password){
+        const auth = await authService.signInUser(email,password, setLoading);
+        setAuth(auth);
+        return auth;
     }
 
 
     return (
-        <AuthContext.Provider value={{signIn, user: user}}>
+        <AuthContext.Provider value={{signIn, authData: authData}}>
             {children}
         </AuthContext.Provider>
     )
