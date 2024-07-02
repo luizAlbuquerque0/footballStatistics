@@ -1,12 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import {Login} from "./src/pages/login/index"
+import { Router } from './src/routes/router';
 
 export default function App() {
   return (
-    <View >
-      <Login/>
-    </View>
+    <Router/>
   );
 }
 
