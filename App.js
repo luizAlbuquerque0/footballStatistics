@@ -1,9 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Router } from './src/routes/router';
+import { AuthProvider } from './src/contexts/AuthContext';
 
 export default function App() {
   return (
-    <Router/>
+    <AuthProvider>
+      <Router/>
+    </AuthProvider>
   );
 }
 

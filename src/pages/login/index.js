@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { View , Text, StyleSheet, TextInput, TouchableOpacity} from "react-native";
 import { useFonts, ArchitectsDaughter_400Regular } from '@expo-google-fonts/architects-daughter'
+import { useAuth } from "../../contexts/AuthContext";
 
 
 export function Login() {
+
+    const authContext = useAuth();
+
     const [fontLoaded] = useFonts({
         ArchitectsDaughter_400Regular
     })
@@ -18,8 +22,7 @@ export function Login() {
     }
     
     const login = ()=>{
-        console.log("email:" + email)
-        console.log("senha:" + password)
+        authContext.signIn();
     }
 
     return(
