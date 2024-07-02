@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import {Login} from "../pages/login/index"
+import Register from "../pages/Register";
 
 export function AuthStack(){
 
@@ -15,6 +16,13 @@ export function AuthStack(){
                 headerShown: false
             }}
             name="login" component={Login} />
+            <Stack.Screen 
+            options={{
+                title: "",
+                headerTransparent: true,
+                headerShown: false
+            }}
+            name="register" component={Register} />
        </Stack.Navigator>
     )
 }

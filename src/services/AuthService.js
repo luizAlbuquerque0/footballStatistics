@@ -24,4 +24,21 @@ async function signInUser(email, password,  setLoading){
     }
 }
 
-export const authService = {signInUser}
+
+async function registerUser(name, email, password){
+
+  try{
+    var data = {
+      name: name,
+      email: email,
+      password: password,
+    }
+    var res = await api.post("/users",data);
+    return res.data;
+  }catch(err){
+
+  }
+
+}
+
+export const authService = {signInUser , registerUser}

@@ -6,9 +6,7 @@ import { signInUser } from "../../services/AuthService";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 
-
-export function Login() {
-
+export default function Register(){
     const authContext = useAuth();
     const navigation = useNavigation();
 
@@ -17,21 +15,29 @@ export function Login() {
     })
 
     
-
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const register = ()=>{
-        navigation.navigate("register")
+    const register = async()=>{
+        await authContext.register(name,email,password)
     }
     
     async function login(){
-        await authContext.signIn(email,password);
+        navigation.navigate("login")
     }
 
     return(
         <View style={styles.container}>
+            
             <Text style={styles.title}>FootBall Statistics</Text>
+            <Text style={styles.subTitle}>Crie sua conta e não perca de vista seus números</Text>
+            <TextInput 
+                style={styles.input}
+                placeholder="Nome"
+                placeholderTextColor="white"
+                onChangeText={(e)=>setName(e)}
+            />
             <TextInput 
                 style={styles.input}
                 placeholder="Email"
@@ -45,7 +51,7 @@ export function Login() {
                 onChangeText={(e)=>setPassword(e)}
             />
             <TouchableOpacity style={styles.button}>
-                <Text onPress={login}>Entrar</Text>
+                <Text onPress={register}>Criar conta</Text>
             </TouchableOpacity>
 
             <View style={styles.lineContainer}>
@@ -55,10 +61,11 @@ export function Login() {
             </View>
 
             <Text style={styles.registerText} >
-                Não tem uma conta?  
-                <Text style={styles.registerLink} onPress={register}>  Cadastre-se</Text> 
+                Já tem uma conta?  
+                <Text style={styles.registerLink} onPress={login}>  Entrar</Text> 
             </Text>
-        </View>
+            
+    </View>
     )
 }
 
@@ -81,9 +88,8 @@ const styles = StyleSheet.create({
     },
     title:{
         color: "white",
-        marginBottom: 8,
         fontSize: 30,
-        marginBottom: "10%",
+        marginBottom: "2%",
         fontFamily: "ArchitectsDaughter_400Regular",
     },
     button:{
@@ -119,5 +125,13 @@ const styles = StyleSheet.create({
       },
       registerLink:{
         color:"#015267",
+      },
+      subTitle:{
+        color: "white",
+        fontSize: 15,
+        marginBottom: "10%",
+        width: "50%",
+        textAlign: "center",
+        fontFamily: "ArchitectsDaughter_400Regular",
       }
 })

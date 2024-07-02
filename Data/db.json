@@ -1,5 +1,28 @@
 {
-    "users": [
-      { "id": 1, "name": "Luiz" , "password" : "1234", "email" : "luiz@gmail.com"}
-    ]
-  }
+  "users": [
+    {
+      "id": 1,
+      "name": "Luiz",
+      "password": "1234",
+      "email": "luiz@gmail.com"
+    },
+    {
+      "id": "72d6",
+      "name": "teste",
+      "email": "teste@teste.com",
+      "password": "1234"
+    },
+    {
+      "id": "fd42",
+      "name": "teste",
+      "email": "teste@teste.com",
+      "password": "1234"
+    },
+    {
+      "id": "92f6",
+      "name": "teste",
+      "email": "teste@teste.com",
+      "password": "1234"
+    }
+  ]
+}

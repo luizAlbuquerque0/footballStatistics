@@ -17,9 +17,15 @@ export const AuthProvider = ({children})=>{
         return auth;
     }
 
+    async function register(name, email, password){
+        const auth = await authService.registerUser(name,email,password);
+        setAuth(auth);
+        return auth;
+    }
+
 
     return (
-        <AuthContext.Provider value={{signIn, authData: authData}}>
+        <AuthContext.Provider value={{signIn, authData: authData, register}}>
             {children}
         </AuthContext.Provider>
     )
