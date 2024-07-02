@@ -24,5 +24,14 @@
       "email": "teste@teste.com",
       "password": "1234"
     }
+  ],
+  "matchs" : [
+      {
+        "id" : 1,
+        "minutesPlayed" : 40,
+        "shots" : 4,
+        "goals" : 1,
+        "playerId" : 1
+      }
   ]
 }
