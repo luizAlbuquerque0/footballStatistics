@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Router } from './src/routes/router';
 import { AuthProvider } from './src/contexts/AuthContext';
+import { MatchProvider } from './src/contexts/matchContext';
 
 export default function App() {
   return (
     <AuthProvider>
-      <Router/>
+      <MatchProvider>
+        <Router/>
+        </MatchProvider>
     </AuthProvider>
   );
 }
